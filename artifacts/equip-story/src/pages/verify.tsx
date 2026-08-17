@@ -94,6 +94,9 @@ export default function VerifyPage() {
               <p className="text-navy/80 font-medium text-lg">
                 Sent to <span className="font-bold text-navy">{phone}</span>
               </p>
+              <p className="bg-[#F4E487] text-navy font-display font-bold uppercase tracking-wider text-sm px-4 py-2 inline-block">
+                Demo mode: no text is sent — enter any six-digit code.
+              </p>
               
               <div className="flex justify-center py-6">
                 <InputOTP 
