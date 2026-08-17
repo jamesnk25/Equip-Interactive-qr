@@ -53,28 +53,30 @@ export default function VerifyPage() {
   };
 
   return (
-    <MobileLayout>
+    <MobileLayout theme="light">
       <div className="flex-1 flex flex-col p-6 justify-center">
         {step === 'phone' ? (
           <SlideUp delay={0.1}>
             <div className="text-center space-y-6">
-              <h1 className="text-3xl font-black uppercase tracking-tight">ONE QUICK STEP.</h1>
-              <p className="text-muted-foreground font-medium text-lg">
+              <h1 className="text-5xl font-display font-bold uppercase tracking-tight text-navy">
+                <span className="bg-chartreuse px-3 py-1 inline-block">ONE QUICK STEP.</span>
+              </h1>
+              <p className="text-navy/80 font-medium text-lg leading-relaxed">
                 We'll text you a six-digit code to verify your mobile number.
               </p>
               
-              <form onSubmit={handlePhoneSubmit} className="space-y-6 pt-4">
+              <form onSubmit={handlePhoneSubmit} className="space-y-8 pt-6">
                 <Input 
                   type="tel" 
                   placeholder="(555) 555-5555" 
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="bg-card border-card-border h-16 text-center text-2xl font-bold tracking-widest"
+                  className="bg-white border-2 border-navy rounded-none h-16 text-center text-3xl font-display font-bold tracking-widest text-navy focus-visible:ring-primary"
                   required
                 />
                 <Button 
                   type="submit" 
-                  className="w-full h-16 text-lg font-black uppercase tracking-widest rounded-xl"
+                  className="w-full h-16 text-3xl font-display font-bold uppercase tracking-wider rounded-none bg-primary hover:bg-navy text-white transition-colors"
                   disabled={phone.length < 10}
                 >
                   TEXT ME A CODE
@@ -85,12 +87,15 @@ export default function VerifyPage() {
         ) : (
           <SlideUp delay={0}>
             <div className="text-center space-y-8">
-              <h1 className="text-3xl font-black uppercase tracking-tight">ENTER YOUR CODE</h1>
-              <p className="text-muted-foreground font-medium">
-                Sent to {phone}
+              <h1 className="text-5xl font-display font-bold uppercase tracking-tight text-navy">
+                ENTER YOUR <br/>
+                <span className="bg-chartreuse px-3 py-1 inline-block mt-2">CODE</span>
+              </h1>
+              <p className="text-navy/80 font-medium text-lg">
+                Sent to <span className="font-bold text-navy">{phone}</span>
               </p>
               
-              <div className="flex justify-center py-4">
+              <div className="flex justify-center py-6">
                 <InputOTP 
                   maxLength={6} 
                   value={code} 
@@ -99,20 +104,20 @@ export default function VerifyPage() {
                   disabled={verifyAttendee.isPending}
                 >
                   <InputOTPGroup className="gap-2">
-                    <InputOTPSlot index={0} className="w-12 h-14 text-2xl font-bold bg-card border-card-border rounded-lg" />
-                    <InputOTPSlot index={1} className="w-12 h-14 text-2xl font-bold bg-card border-card-border rounded-lg" />
-                    <InputOTPSlot index={2} className="w-12 h-14 text-2xl font-bold bg-card border-card-border rounded-lg" />
-                    <InputOTPSlot index={3} className="w-12 h-14 text-2xl font-bold bg-card border-card-border rounded-lg" />
-                    <InputOTPSlot index={4} className="w-12 h-14 text-2xl font-bold bg-card border-card-border rounded-lg" />
-                    <InputOTPSlot index={5} className="w-12 h-14 text-2xl font-bold bg-card border-card-border rounded-lg" />
+                    <InputOTPSlot index={0} className="w-12 h-16 text-3xl font-display font-bold bg-white border-2 border-navy rounded-none text-navy" />
+                    <InputOTPSlot index={1} className="w-12 h-16 text-3xl font-display font-bold bg-white border-2 border-navy rounded-none text-navy" />
+                    <InputOTPSlot index={2} className="w-12 h-16 text-3xl font-display font-bold bg-white border-2 border-navy rounded-none text-navy" />
+                    <InputOTPSlot index={3} className="w-12 h-16 text-3xl font-display font-bold bg-white border-2 border-navy rounded-none text-navy" />
+                    <InputOTPSlot index={4} className="w-12 h-16 text-3xl font-display font-bold bg-white border-2 border-navy rounded-none text-navy" />
+                    <InputOTPSlot index={5} className="w-12 h-16 text-3xl font-display font-bold bg-white border-2 border-navy rounded-none text-navy" />
                   </InputOTPGroup>
                 </InputOTP>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <Button 
                   onClick={handleVerify}
-                  className="w-full h-16 text-lg font-black uppercase tracking-widest rounded-xl"
+                  className="w-full h-16 text-3xl font-display font-bold uppercase tracking-wider rounded-none bg-primary hover:bg-navy text-white transition-colors"
                   disabled={code.length !== 6 || verifyAttendee.isPending}
                 >
                   {verifyAttendee.isPending ? <Loader2 className="animate-spin w-6 h-6" /> : "VERIFY"}
@@ -120,7 +125,7 @@ export default function VerifyPage() {
                 
                 <button 
                   onClick={() => setStep('phone')} 
-                  className="text-muted-foreground text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors"
+                  className="text-navy/60 text-lg font-display font-bold uppercase tracking-widest hover:text-primary transition-colors inline-block pb-1 border-b border-navy/30"
                 >
                   Didn't get it? Send another code.
                 </button>

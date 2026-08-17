@@ -58,11 +58,14 @@ export default function ProfilePage() {
   };
 
   return (
-    <MobileLayout>
+    <MobileLayout theme="light">
       <div className="flex-1 flex flex-col p-6 max-h-full overflow-y-auto">
         <SlideUp delay={0.1}>
           <div className="mb-8">
-            <h1 className="text-2xl font-black uppercase tracking-tight">FIRST, TELL US A LITTLE ABOUT YOU.</h1>
+            <h1 className="text-5xl font-display font-bold uppercase tracking-tight text-navy">
+              FIRST, TELL US A <br/>
+              <span className="bg-chartreuse px-2 py-1 inline-block mt-2">LITTLE ABOUT YOU.</span>
+            </h1>
           </div>
         </SlideUp>
 
@@ -75,9 +78,9 @@ export default function ProfilePage() {
                   name="firstName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-xs uppercase tracking-wider text-muted-foreground font-bold">First Name</FormLabel>
+                      <FormLabel className="text-sm font-display uppercase tracking-widest text-navy font-bold">First Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="James" className="bg-card border-card-border h-12 text-lg" {...field} />
+                        <Input placeholder="James" className="bg-white border-2 border-navy rounded-none h-14 text-lg font-medium text-navy focus-visible:ring-primary focus-visible:border-primary placeholder:text-navy/30" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -88,9 +91,9 @@ export default function ProfilePage() {
                   name="lastName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-xs uppercase tracking-wider text-muted-foreground font-bold">Last Name</FormLabel>
+                      <FormLabel className="text-sm font-display uppercase tracking-widest text-navy font-bold">Last Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="Smith" className="bg-card border-card-border h-12 text-lg" {...field} />
+                        <Input placeholder="Smith" className="bg-white border-2 border-navy rounded-none h-14 text-lg font-medium text-navy focus-visible:ring-primary focus-visible:border-primary placeholder:text-navy/30" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -104,9 +107,9 @@ export default function ProfilePage() {
                   name="city"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-xs uppercase tracking-wider text-muted-foreground font-bold">City</FormLabel>
+                      <FormLabel className="text-sm font-display uppercase tracking-widest text-navy font-bold">City</FormLabel>
                       <FormControl>
-                        <Input placeholder="Columbus" className="bg-card border-card-border h-12 text-lg" {...field} />
+                        <Input placeholder="Louisville" className="bg-white border-2 border-navy rounded-none h-14 text-lg font-medium text-navy focus-visible:ring-primary focus-visible:border-primary placeholder:text-navy/30" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -117,9 +120,9 @@ export default function ProfilePage() {
                   name="state"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-xs uppercase tracking-wider text-muted-foreground font-bold">State</FormLabel>
+                      <FormLabel className="text-sm font-display uppercase tracking-widest text-navy font-bold">State</FormLabel>
                       <FormControl>
-                        <Input placeholder="OH" className="bg-card border-card-border h-12 text-lg uppercase" maxLength={2} {...field} />
+                        <Input placeholder="KY" className="bg-white border-2 border-navy rounded-none h-14 text-lg font-medium text-navy uppercase focus-visible:ring-primary focus-visible:border-primary placeholder:text-navy/30" maxLength={2} {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -127,21 +130,23 @@ export default function ProfilePage() {
                 />
               </div>
 
+              <div className="w-full border-b-[3px] border-dashed border-primary my-8 opacity-50"></div>
+
               <FormField
                 control={form.control}
                 name="businessType"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-xs uppercase tracking-wider text-muted-foreground font-bold">What best describes your business?</FormLabel>
+                    <FormLabel className="text-sm font-display uppercase tracking-widest text-navy font-bold">What best describes your business?</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
-                        <SelectTrigger className="bg-card border-card-border h-14 text-base">
+                        <SelectTrigger className="bg-white border-2 border-navy rounded-none h-14 text-lg font-medium text-navy focus:ring-primary">
                           <SelectValue placeholder="Select business type" />
                         </SelectTrigger>
                       </FormControl>
-                      <SelectContent className="bg-card border-card-border">
+                      <SelectContent className="bg-white border-2 border-navy rounded-none">
                         {BUSINESS_TYPES.map((b) => (
-                          <SelectItem key={b.value} value={b.value} className="py-3 text-base">
+                          <SelectItem key={b.value} value={b.value} className="py-3 text-base text-navy hover:bg-chartreuse focus:bg-chartreuse rounded-none cursor-pointer">
                             {b.value}
                           </SelectItem>
                         ))}
@@ -160,10 +165,10 @@ export default function ProfilePage() {
                 )}
               />
 
-              <div className="pt-4">
+              <div className="pt-8">
                 <Button 
                   type="submit" 
-                  className="w-full h-16 text-lg font-black uppercase tracking-widest rounded-xl shadow-[0_0_20px_rgba(255,90,0,0.15)]"
+                  className="w-full h-16 text-3xl font-display font-bold uppercase tracking-wider rounded-none bg-primary hover:bg-navy text-white transition-colors"
                   disabled={createAttendee.isPending}
                 >
                   {createAttendee.isPending ? <Loader2 className="animate-spin w-6 h-6" /> : "CONTINUE"}

@@ -1,28 +1,30 @@
 import { ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLocation } from 'wouter';
+import equipLogoNavy from '@assets/brand/equip_540.png';
+import equipLogoWhite from '@assets/brand/equip_White.png';
 
-export function MobileLayout({ children, hideLogo = false }: { children: ReactNode; hideLogo?: boolean }) {
+interface MobileLayoutProps {
+  children: ReactNode;
+  hideLogo?: boolean;
+  theme?: 'light' | 'dark';
+}
+
+export function MobileLayout({ children, hideLogo = false, theme = 'light' }: MobileLayoutProps) {
   const [location] = useLocation();
 
+  const logoPath = theme === 'dark' ? equipLogoWhite : equipLogoNavy;
+  const bgClass = theme === 'dark' ? 'bg-navy text-white' : 'bg-background text-navy';
+
   return (
-    <div className="min-h-[100dvh] w-full bg-background flex justify-center">
-      {/* 
-        On desktop, it restricts to a mobile width.
-        On mobile, it takes the full width. 
-      */}
-      <div className="w-full max-w-md bg-background relative shadow-2xl flex flex-col min-h-[100dvh]">
+    <div className={`min-h-[100dvh] w-full flex justify-center ${bgClass} transition-colors duration-300`}>
+      <div className={`w-full max-w-md relative shadow-2xl flex flex-col min-h-[100dvh] ${bgClass} transition-colors duration-300 border-x border-black/5`}>
         {!hideLogo && (
           <div className="p-6 pt-12 flex justify-center z-10 relative">
             <img 
-              src={(import.meta as any).env?.MODE === 'development' ? '/attached_assets/brand/equip_White.png' : 'https://raw.githubusercontent.com/replit/vite-plugin-cartographer/main/attached_assets/brand/equip_White.png'} 
+              src={logoPath} 
               alt="Equip" 
-              className="h-10 object-contain opacity-90"
-              onError={(e) => {
-                // Fallback in case of path issues
-                (e.target as HTMLImageElement).src = '/src/assets/equip_White.png'; // Will break if doesn't exist, but visual failsafe
-                (e.target as HTMLImageElement).style.display = 'none'; // hide if broken
-              }}
+              className="h-10 object-contain"
             />
           </div>
         )}
@@ -31,9 +33,9 @@ export function MobileLayout({ children, hideLogo = false }: { children: ReactNo
           <AnimatePresence mode="wait">
             <motion.div
               key={location}
-              initial={{ opacity: 0, y: 15, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -15, scale: 0.98 }}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               className="flex-1 flex flex-col w-full h-full"
             >
