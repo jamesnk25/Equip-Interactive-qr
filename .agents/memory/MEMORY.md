@@ -1,0 +1,1 @@
+- [Orval zod.int() vs zod v3](orval-zod-int.md) — never use `type: integer` in openapi.yaml; Orval emits Zod v4 `zod.int()` and the codegen typecheck fails. Use `type: number`.

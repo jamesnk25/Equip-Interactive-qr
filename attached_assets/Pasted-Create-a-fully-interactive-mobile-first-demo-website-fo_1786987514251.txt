@@ -1,0 +1,809 @@
+Create a **fully interactive, mobile-first demo website** for **Equip Expo** that demonstrates a new attendee listening and feedback experience.
+
+This is a **net-new concept website** designed to show how Equip Expo could collect deeper attendee insights in a way that feels fast, modern, conversational, and human.
+
+## CORE IDEA
+
+Equip Expo has approximately **30,000 attendees and 30,000 different stories.**
+
+This experience gives attendees an incredibly simple way to tell Equip:
+
+* Who they are
+* What kind of business they operate
+* What they came to Equip to accomplish
+* What they are seeing
+* What they are looking for
+* What is getting in their way
+* What they want more of
+* What would make Equip more valuable
+
+### IMPORTANT
+
+**Never call this a survey.**
+
+This should feel like Equip is **listening**, not administering a questionnaire.
+
+The experience should feel closer to having a conversation with Equip than filling out a traditional feedback form.
+
+---
+
+# DEMO EXPERIENCE
+
+Build the entire attendee journey.
+
+The demo should be designed primarily for a **mobile phone**, but it should also render beautifully on desktop.
+
+The core journey is:
+
+**QR CODE → LANDING PAGE → QUICK PROFILE → MOBILE VERIFICATION → LISTENING EXPERIENCE → THANK YOU**
+
+The entire experience should feel achievable in approximately **60–90 seconds**.
+
+---
+
+# DESIGN DIRECTION
+
+Create a premium, modern experience inspired by:
+
+* Apple
+* Nike
+* Spotify
+* Airbnb
+* Modern event technology
+* Premium consumer mobile apps
+
+Use a strong Equip Expo aesthetic.
+
+The experience should feel:
+
+* Bold
+* Outdoor
+* Modern
+* Energetic
+* Human
+* Simple
+* Friendly
+* Premium
+* Mobile-first
+
+Avoid:
+
+* Corporate form design
+* Long pages
+* Dense text
+* Traditional survey UI
+* Progress bars with 20 questions
+* Generic stock icons
+* Robots
+* Futuristic AI clichés
+* Excessive gradients
+* Complicated account creation
+
+The technology should disappear behind the experience.
+
+---
+
+# DEMO HOME / QR CODE SCREEN
+
+Create a desktop presentation view that can be displayed during a live presentation.
+
+The screen should prominently display an actual functioning demo QR code.
+
+Headline:
+
+# WHAT'S YOUR EQUIP STORY?
+
+Supporting copy:
+
+**Tell us what you're seeing, what you're looking for, and what could make Equip even better.**
+
+CTA:
+
+## SCAN TO SHARE YOUR STORY
+
+Show a large QR code in the center or right side of the screen.
+
+The QR code should point to the mobile version of this demo.
+
+Underneath:
+
+**No app required. Takes about a minute.**
+
+Optional supporting statement:
+
+**30,000 attendees. 30,000 stories.**
+
+---
+
+# MOBILE SCREEN 1 — WELCOME
+
+Once the QR code is scanned, open a beautiful mobile landing page.
+
+Equip Expo logo at the top.
+
+Hero:
+
+# YOUR EQUIP.
+
+# YOUR EXPERIENCE.
+
+# YOUR VOICE.
+
+Supporting copy:
+
+**Tell us what you're looking for, what you're learning, and what would make Equip even more valuable to you.**
+
+Primary CTA:
+
+**START**
+
+Small supporting text:
+
+**About 60 seconds.**
+
+No long legal language or unnecessary navigation.
+
+---
+
+# MOBILE SCREEN 2 — QUICK PROFILE
+
+Headline:
+
+# FIRST, TELL US A LITTLE ABOUT YOU.
+
+Create a simple form with:
+
+**First Name**
+
+**Last Name**
+
+**City**
+
+**State**
+
+**What best describes your business?**
+
+Use a dropdown menu with these options:
+
+1. Landscape Contractor
+2. Outdoor Power Equipment Dealer
+3. Hardscape & Paver Installer
+4. Tree Care & Arborist Services
+5. Irrigation & Lighting Company
+6. Nursery & Greenhouse
+7. Distributor / Manufacturer
+8. Property & Fleet Management
+9. Other
+
+Optional helper descriptions can appear after selection, but keep the dropdown itself clean.
+
+For example:
+
+### Landscape Contractor
+
+Residential and commercial property maintenance, design and build.
+
+### Outdoor Power Equipment Dealer
+
+Independent and regional equipment retailers.
+
+### Hardscape & Paver Installer
+
+Patios, retaining walls, stonework and outdoor living construction.
+
+### Tree Care & Arborist Services
+
+Tree pruning, removal and plant health care.
+
+### Irrigation & Lighting Company
+
+Water management, sprinkler and outdoor lighting services.
+
+### Nursery & Greenhouse
+
+Plant, tree and turf growers and suppliers.
+
+### Distributor / Manufacturer
+
+Equipment brands, parts suppliers and B2B wholesale providers.
+
+### Property & Fleet Management
+
+Commercial grounds, municipalities, golf courses and fleet operations.
+
+Primary CTA:
+
+**CONTINUE**
+
+---
+
+# MOBILE SCREEN 3 — MOBILE VERIFICATION
+
+Do NOT use email.
+
+Do NOT create password functionality.
+
+This experience should use **mobile verification only.**
+
+Headline:
+
+# ONE QUICK STEP.
+
+Supporting text:
+
+**We'll text you a six-digit code to verify your mobile number.**
+
+Field:
+
+**Mobile Number**
+
+CTA:
+
+**TEXT ME A CODE**
+
+For the demo, simulate the SMS verification process.
+
+After clicking the button, transition to:
+
+# ENTER YOUR CODE
+
+Create six individual number fields.
+
+Allow any six-digit code to work in the demo.
+
+Add small text:
+
+**Didn't get it? Send another code.**
+
+CTA:
+
+**VERIFY**
+
+Make this interaction feel fast and polished.
+
+---
+
+# MOBILE SCREEN 4 — LISTENING EXPERIENCE
+
+Once verified, welcome the attendee by first name.
+
+Example:
+
+# JAMES, WHAT'S ON YOUR MIND?
+
+Supporting copy:
+
+**Tell Equip what you're seeing, looking for, thinking about, or trying to solve.**
+
+Provide two very prominent participation options.
+
+---
+
+## OPTION 1 — SPEAK
+
+Large button:
+
+🎙️
+
+# TALK TO EQUIP
+
+Supporting copy:
+
+**Tap to record your thoughts.**
+
+When selected, show a beautiful voice recording interface.
+
+Include:
+
+* Microphone animation
+* Recording timer
+* Audio waveform
+* Pause
+* Stop
+* Re-record
+* Submit
+
+For the demo, simulate recording if browser permissions are unavailable.
+
+When recording begins, show:
+
+**We're listening...**
+
+Do not show complex audio controls.
+
+---
+
+## OPTION 2 — WRITE
+
+Large button:
+
+# WRITE IT INSTEAD
+
+Open a clean text box.
+
+Placeholder:
+
+**What's happening in your world? What are you looking for at Equip?**
+
+Allow free-form text.
+
+CTA:
+
+**SHARE MY THOUGHT**
+
+---
+
+# THOUGHT STARTERS
+
+Underneath the primary Speak / Write interaction, include:
+
+# NEED A PLACE TO START?
+
+Show conversational prompt cards.
+
+Examples:
+
+### WHAT BROUGHT YOU TO EQUIP THIS YEAR?
+
+### WHAT ARE YOU TRYING TO SOLVE IN YOUR BUSINESS?
+
+### WHAT HAVE YOU SEEN HERE THAT CAUGHT YOUR ATTENTION?
+
+### WHAT DO YOU WISH YOU COULD FIND MORE OF?
+
+### WHAT SHOULD EQUIP KNOW ABOUT YOUR INDUSTRY RIGHT NOW?
+
+### WHAT WOULD MAKE NEXT YEAR EVEN MORE VALUABLE?
+
+Clicking one should open the recording or text experience with that prompt displayed.
+
+---
+
+# PERSONALIZE QUESTIONS BY BUSINESS TYPE
+
+This is an important part of the demo.
+
+The listening experience should dynamically adapt based on the business type selected during registration.
+
+Do NOT ask every attendee exactly the same questions.
+
+## LANDSCAPE CONTRACTOR
+
+Possible prompts:
+
+**What's the biggest thing getting in the way of growing your business?**
+
+**Where could equipment or technology help your team do more?**
+
+**What's getting harder about running a landscaping business today?**
+
+---
+
+## OUTDOOR POWER EQUIPMENT DEALER
+
+Possible prompts:
+
+**What are your customers asking for that is changing how you run your business?**
+
+**What products or technologies are customers asking about most?**
+
+**What's your biggest challenge as a dealer right now?**
+
+---
+
+## HARDSCAPE & PAVER INSTALLER
+
+Possible prompts:
+
+**Where are you seeing the greatest demand from customers?**
+
+**What's slowing your crews down today?**
+
+**What tools, products or ideas could help you grow?**
+
+---
+
+## TREE CARE & ARBORIST SERVICES
+
+Possible prompts:
+
+**What's your biggest operational challenge right now?**
+
+**Where could equipment make your crews safer or more productive?**
+
+**What are customers asking for more often?**
+
+---
+
+## IRRIGATION & LIGHTING COMPANY
+
+Possible prompts:
+
+**What trends are changing your business right now?**
+
+**Where could smarter technology improve your operation?**
+
+**What are customers expecting that they weren't asking for a few years ago?**
+
+---
+
+## NURSERY & GREENHOUSE
+
+Possible prompts:
+
+**What's making it harder to grow or distribute your products?**
+
+**How are labor, weather or supply challenges affecting you?**
+
+**What would help your business operate more efficiently?**
+
+---
+
+## DISTRIBUTOR / MANUFACTURER
+
+Possible prompts:
+
+**What are you hearing most often from customers?**
+
+**What market changes are affecting your business?**
+
+**What are buyers looking for that they weren't asking for before?**
+
+---
+
+## PROPERTY & FLEET MANAGEMENT
+
+Possible prompts:
+
+**What's your biggest challenge managing equipment or grounds at scale?**
+
+**Where are labor or maintenance costs creating pressure?**
+
+**What technology could make your operation easier to manage?**
+
+---
+
+# QUICK INTEREST PATH
+
+Some attendees may not want to record or write an open-ended response.
+
+Give them another option:
+
+# WHAT ARE YOU MOST INTERESTED IN RIGHT NOW?
+
+Display selectable visual cards.
+
+Options:
+
+* Equipment & Technology
+* Labor & Workforce
+* Business Growth
+* Financing
+* Fleet
+* Education
+* Sustainability
+* Operations
+* New Products
+* Networking
+* Other
+
+Allow the user to choose one or more.
+
+Once selected, ask:
+
+# TELL US A LITTLE MORE.
+
+Then allow either:
+
+**Speak**
+
+or
+
+**Write**
+
+Example:
+
+If they choose **Labor & Workforce**, show:
+
+**What's happening with labor in your business right now?**
+
+If they choose **Business Growth**, show:
+
+**What's the biggest thing standing between your business and its next stage of growth?**
+
+If they choose **Equipment & Technology**, show:
+
+**What are you hoping new equipment or technology can help you accomplish?**
+
+---
+
+# OPTIONAL AI-LIKE FOLLOW-UP
+
+For the demo, create the feeling of a lightweight conversational intelligence layer.
+
+After the attendee provides a response, the system may generate **one relevant follow-up question**.
+
+Example attendee response:
+
+> "We're growing quickly but I can't find enough people."
+
+System response:
+
+# GOT IT.
+
+**Where do you think technology or equipment could reduce the amount of labor you need?**
+
+Then allow:
+
+**Answer**
+
+or
+
+**I'm Done**
+
+Never create an endless chatbot.
+
+Maximum of **one intelligent follow-up question** in the demo.
+
+The experience should remain extremely fast.
+
+---
+
+# COMPLETION SCREEN
+
+After submission:
+
+Use the attendee's first name.
+
+Example:
+
+# THANKS, JAMES.
+
+Then:
+
+# YOU JUST HELPED SHAPE
+
+# THE FUTURE OF EQUIP.
+
+Supporting copy:
+
+**Every story helps Equip understand what this industry needs next.**
+
+Show a subtle animation indicating their story becoming part of a larger network of attendee stories.
+
+Then show:
+
+### 30,000 ATTENDEES
+
+### 30,000 STORIES
+
+### ONE EQUIP COMMUNITY
+
+Primary CTA:
+
+**KEEP EXPLORING EQUIP**
+
+Secondary CTA:
+
+**SHARE ANOTHER THOUGHT**
+
+---
+
+# OPTIONAL PERSONALIZATION DEMO
+
+Below the completion message, demonstrate what the intelligence could eventually enable.
+
+Headline:
+
+# BASED ON WHAT YOU SHARED...
+
+Example personalized recommendations:
+
+**You may be interested in:**
+
+* Workforce productivity sessions
+* Autonomous equipment demonstrations
+* Fleet management exhibitors
+* Business growth education
+* Relevant manufacturers
+
+These can be fictional demo recommendations.
+
+Clearly label them as recommendations.
+
+This illustrates that the value exchange is not simply:
+
+**Equip asks → attendee answers.**
+
+It becomes:
+
+**Attendee shares → Equip understands → Equip gives something useful back.**
+
+---
+
+# DEMO ADMIN / INTELLIGENCE VIEW
+
+Create an optional hidden route or button:
+
+**VIEW EQUIP INTELLIGENCE**
+
+This takes the presenter to a simple executive dashboard showing what happens behind the scenes.
+
+Use synthetic data.
+
+Show:
+
+# 30,000 STORIES BECOME INTELLIGENCE.
+
+Dashboard widgets:
+
+### STORIES SHARED
+
+1,284
+
+### VOICE RESPONSES
+
+62%
+
+### WRITTEN RESPONSES
+
+38%
+
+### TOP BUSINESS TYPES
+
+Example:
+
+Landscape Contractors — 39%
+Dealers — 16%
+Tree Care — 12%
+Property / Fleet — 10%
+Hardscape — 9%
+Other — 14%
+
+### TOP THEMES
+
+Labor & Workforce
+Business Growth
+Equipment Productivity
+Fleet Costs
+Financing
+Technology Adoption
+
+### EMERGING STORY
+
+Example:
+
+**LABOR IS BECOMING A PRODUCTIVITY PROBLEM**
+
+Supporting insight:
+
+**Landscape contractors increasingly describe equipment and automation as a way to grow without proportionally increasing headcount.**
+
+### ATTENDEE VOICES
+
+Show short synthetic attendee statements such as:
+
+> "We're getting more work than we can handle, but finding crews is almost impossible."
+
+> "I came here specifically looking for equipment that lets two people do what used to take four."
+
+> "Fleet financing is becoming one of our biggest barriers to growth."
+
+Make it clear these are **synthetic demo responses**.
+
+---
+
+# DATA MODEL FOR THE DEMO
+
+Store each interaction with these synthetic/demo fields:
+
+* attendee_id
+* first_name
+* last_name
+* city
+* state
+* mobile_number
+* mobile_verified
+* business_type
+* selected_interest
+* response_type
+* voice_response
+* written_response
+* response_timestamp
+* prompt_shown
+* follow_up_prompt
+* follow_up_response
+* sentiment
+* detected_theme
+* detected_business_challenge
+* detected_goal
+
+This can use a simple local database or demo data store.
+
+No real SMS provider is required for the prototype.
+
+Simulate verification.
+
+---
+
+# PRIVACY / CONSENT
+
+Include a short, friendly consent message before recording:
+
+**By sharing, you agree that Equip may use your feedback to improve future events and experiences.**
+
+For audio:
+
+**Your voice response may be transcribed and analyzed to help Equip understand attendee needs.**
+
+Keep this concise and easy to understand.
+
+---
+
+# IMPORTANT LANGUAGE RULES
+
+NEVER use these phrases:
+
+* Take our survey
+* Complete the survey
+* Survey response
+* Questionnaire
+* Customer research form
+* Feedback questionnaire
+
+Prefer:
+
+* Share your story
+* Tell us what you're seeing
+* Tell Equip
+* What's on your mind?
+* Share a thought
+* What are you looking for?
+* Help shape Equip
+* We're listening
+* Your Equip experience
+* Your voice
+
+---
+
+# CORE STORY THE DEMO MUST COMMUNICATE
+
+This website is not simply a new way to collect feedback.
+
+It demonstrates a larger strategy.
+
+Equip has approximately:
+
+# 30,000 PEOPLE.
+
+# 30,000 BUSINESSES.
+
+# 30,000 CHALLENGES.
+
+# 30,000 STORIES.
+
+Traditional event data tells us:
+
+**Who attended.**
+
+This experience begins helping Equip understand:
+
+**Why they came.**
+
+**What they need.**
+
+**What they're trying to accomplish.**
+
+**What's getting in their way.**
+
+**What they want next.**
+
+That creates the progression:
+
+# STORIES → DATA → INTELLIGENCE → ACTION
+
+And ultimately:
+
+# PERSONALIZATION AT SCALE.
+
+Build the prototype so this strategic idea is obvious during a live executive demonstration while the attendee-facing experience remains extraordinarily simple.

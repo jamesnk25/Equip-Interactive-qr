@@ -10,6 +10,12 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: attendees
+    description: Attendee profiles
+  - name: stories
+    description: Attendee stories (voice or written responses)
+  - name: intelligence
+    description: Aggregated intelligence dashboard data
 paths:
   /healthz:
     get:
@@ -24,6 +30,139 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /attendees:
+    post:
+      operationId: createAttendee
+      tags: [attendees]
+      summary: Create an attendee profile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AttendeeInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Attendee"
+        "400":
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+  /attendees/{id}/verify:
+    post:
+      operationId: verifyAttendee
+      tags: [attendees]
+      summary: Mark an attendee's mobile number as verified (demo simulation)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VerificationInput"
+      responses:
+        "200":
+          description: Verified
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Attendee"
+        "404":
+          description: Attendee not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+  /stories:
+    post:
+      operationId: createStory
+      tags: [stories]
+      summary: Submit an attendee story (voice or written)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StoryInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Story"
+        "400":
+          description: Invalid input
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+    get:
+      operationId: listStories
+      tags: [stories]
+      summary: List recent stories
+      responses:
+        "200":
+          description: Recent stories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Story"
+  /stories/{id}/followup:
+    post:
+      operationId: addFollowUp
+      tags: [stories]
+      summary: Attach a follow-up prompt response to a story
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: number
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FollowUpInput"
+      responses:
+        "200":
+          description: Updated story
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Story"
+        "404":
+          description: Story not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorMessage"
+  /intelligence/summary:
+    get:
+      operationId: getIntelligenceSummary
+      tags: [intelligence]
+      summary: Executive intelligence dashboard summary (blends live + synthetic demo data)
+      responses:
+        "200":
+          description: Dashboard summary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/IntelligenceSummary"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +172,114 @@ components:
           type: string
       required:
         - status
-
+    ErrorMessage:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: string
+    Attendee:
+      type: object
+      required:
+        [id, firstName, lastName, city, state, mobileNumber, mobileVerified, businessType, createdAt]
+      properties:
+        id: { type: number }
+        firstName: { type: string }
+        lastName: { type: string }
+        city: { type: string }
+        state: { type: string }
+        mobileNumber: { type: string }
+        mobileVerified: { type: boolean }
+        businessType: { type: string }
+        createdAt: { type: string }
+    AttendeeInput:
+      type: object
+      required: [firstName, lastName, city, state, mobileNumber, businessType]
+      properties:
+        firstName: { type: string, minLength: 1 }
+        lastName: { type: string, minLength: 1 }
+        city: { type: string, minLength: 1 }
+        state: { type: string, minLength: 1 }
+        mobileNumber: { type: string, minLength: 7 }
+        businessType: { type: string, minLength: 1 }
+    VerificationInput:
+      type: object
+      required: [code]
+      properties:
+        code:
+          type: string
+          minLength: 6
+          maxLength: 6
+    Story:
+      type: object
+      required: [id, attendeeId, responseType, createdAt]
+      properties:
+        id: { type: number }
+        attendeeId: { type: number }
+        responseType:
+          type: string
+          enum: [voice, written]
+        writtenResponse: { type: ["string", "null"] }
+        voiceDurationSeconds: { type: ["number", "null"] }
+        promptShown: { type: ["string", "null"] }
+        selectedInterests:
+          type: ["array", "null"]
+          items: { type: string }
+        followUpPrompt: { type: ["string", "null"] }
+        followUpResponse: { type: ["string", "null"] }
+        sentiment: { type: ["string", "null"] }
+        detectedTheme: { type: ["string", "null"] }
+        createdAt: { type: string }
+    StoryInput:
+      type: object
+      required: [attendeeId, responseType]
+      properties:
+        attendeeId: { type: number }
+        responseType:
+          type: string
+          enum: [voice, written]
+        writtenResponse: { type: string }
+        voiceDurationSeconds: { type: number }
+        promptShown: { type: string }
+        selectedInterests:
+          type: array
+          items: { type: string }
+    FollowUpInput:
+      type: object
+      required: [followUpPrompt]
+      properties:
+        followUpPrompt: { type: string, minLength: 1 }
+        followUpResponse: { type: string }
+    BusinessTypeShare:
+      type: object
+      required: [businessType, percent]
+      properties:
+        businessType: { type: string }
+        percent: { type: number }
+    AttendeeVoice:
+      type: object
+      required: [quote, businessType]
+      properties:
+        quote: { type: string }
+        businessType: { type: string }
+    IntelligenceSummary:
+      type: object
+      required:
+        [storiesShared, voicePercent, writtenPercent, topBusinessTypes, topThemes, emergingStoryHeadline, emergingStoryInsight, attendeeVoices]
+      properties:
+        storiesShared: { type: number }
+        voicePercent: { type: number }
+        writtenPercent: { type: number }
+        topBusinessTypes:
+          type: array
+          items:
+            $ref: "#/components/schemas/BusinessTypeShare"
+        topThemes:
+          type: array
+          items: { type: string }
+        emergingStoryHeadline: { type: string }
+        emergingStoryInsight: { type: string }
+        attendeeVoices:
+          type: array
+          items:
+            $ref: "#/components/schemas/AttendeeVoice"

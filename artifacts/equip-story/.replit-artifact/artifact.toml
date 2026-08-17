@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "What's Your Equip Story?"
+description = "A mobile-first demo website for Equip Expo that lets attendees share their story in ~60 seconds — via voice or text — through a conversational listening experience personalized by business type, with a QR presentation screen and a hidden Equip Intelligence executive dashboard."
+version = "1.0.0"
+id = "artifacts/equip-story"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23261
+
+[services.development]
+run = "pnpm --filter @workspace/equip-story run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/equip-story", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/equip-story/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23261"
+BASE_PATH = "/"

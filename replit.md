@@ -1,6 +1,6 @@
-# [Project name]
+# What's Your Equip Story?
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A mobile-first demo website for Equip Expo that lets attendees share their story (voice or written) in ~60 seconds, with a QR presentation screen for live demos and a hidden Equip Intelligence executive dashboard at `/intelligence`.
 
 ## Run & Operate
 
@@ -22,15 +22,22 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- Frontend: `artifacts/equip-story/src/pages/` (presentation, welcome, profile, verify, listen, thanks, intelligence); journey state in `src/lib/store.tsx`
+- API contract: `lib/api-spec/openapi.yaml` (source of truth); routes in `artifacts/api-server/src/routes/{attendees,stories,intelligence}.ts`
+- DB schema: `lib/db/src/schema/{attendees,stories}.ts`
+- Brand assets: `attached_assets/brand/equip_540.png` (navy logo) and `equip_White.png`
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- SMS verification is simulated — any 6-digit code verifies (demo only, no SMS provider)
+- Voice recordings are not uploaded; only duration is stored (`voiceDurationSeconds`)
+- Sentiment/theme detection is keyword-based on the server at story creation
+- The intelligence dashboard blends a synthetic baseline (1,284 stories) with live submissions
+- OpenAPI spec uses `type: number` everywhere (never `integer`) — see `.agents/memory/orval-zod-int.md`
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Attendee journey: QR screen (`/`) → welcome (`/story`) → quick profile → simulated mobile verification → personalized listening experience (speak/write, prompts by business type, quick interest path, one AI-like follow-up) → thank-you with demo recommendations. Hidden executive dashboard at `/intelligence`. Never called a "survey" anywhere in the UI.
 
 ## User preferences
 
